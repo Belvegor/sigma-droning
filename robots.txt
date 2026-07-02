@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://belvegor.github.io/sigma-droning/sitemap.xml

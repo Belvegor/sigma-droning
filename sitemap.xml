@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Jedna strona (one-pager) — rozbić na więcej wpisów, jeśli case studies dostaną osobne podstrony. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://belvegor.github.io/sigma-droning/</loc><priority>1.0</priority></url>
+</urlset>
