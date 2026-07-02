@@ -14,24 +14,22 @@ Dowolny serwer statyczny, np.:
 npx serve site
 ```
 
-## Wysyłka formularza na e-mail — OSTATNI KROK (2 min)
-Zapytania mają trafiać na **igor_socha@yahoo.com**. Żeby maile docierały automatycznie
-(bez własnego serwera), formularz korzysta z [Formspree](https://formspree.io) — darmowe,
-działa z Yahoo. Trzeba jednorazowo założyć formularz i wkleić jego identyfikator:
+## Wysyłka formularza na e-mail — ZROBIONE ✓
+`FORM_ENDPOINT` w `main.js` jest już ustawiony na `https://formspree.io/f/mojopdjq` — zapytania
+z formularza trafiają na **igor_socha@yahoo.com** przez [Formspree](https://formspree.io).
+Test GET na endpoint zwraca `405 Method Not Allowed` (strona Formspree, nie 404) — formularz
+jest zarejestrowany; jedyny sposób na 100% pewność to wysłać testowe zgłoszenie i sprawdzić
+skrzynkę. Jeśli klient poda e-mail w polu kontaktu, ustawiany jest jako *reply-to*, więc
+odpowiadasz jednym kliknięciem. Formularz ma też ukryty honeypot (`_gotcha`) ograniczający spam.
 
-1. Wejdź na https://formspree.io i załóż darmowe konto.
-2. **New form** → jako adres docelowy podaj `igor_socha@yahoo.com`.
-3. Potwierdź adres klikając link w mailu od Formspree (przyjdzie na Yahoo).
-4. Formspree pokaże endpoint: `https://formspree.io/f/xxxxxxxx`.
-5. Otwórz `site/main.js` i wklej go na górze:
+Gdyby trzeba było kiedyś podmienić formularz na inny endpoint:
 
 ```js
 var FORM_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
 ```
 
-Gotowe — od tej chwili każde wysłane zapytanie przychodzi mailem na igor_socha@yahoo.com.
-Jeśli klient poda e-mail w polu kontaktu, ustawiany jest jako *reply-to*, więc odpowiadasz
-jednym kliknięciem. Formularz ma też ukryty honeypot (`_gotcha`) ograniczający spam.
+**Dopóki `FORM_ENDPOINT` jest pusty**, formularz działa awaryjnie przez `mailto` — dziś to
+nieaktualne, bo endpoint jest ustawiony.
 
 **Dopóki `FORM_ENDPOINT` jest pusty**, formularz działa awaryjnie przez `mailto` (otwiera
 program pocztowy odwiedzającego z gotową treścią) — to działa tylko, gdy ma skonfigurowaną
