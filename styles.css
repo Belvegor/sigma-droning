@@ -264,6 +264,13 @@ h1 {
   font-size: 13px;
   color: #5a6b80;
 }
+.media-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
 .media-pill-sm {
   background: rgba(255,255,255,0.9);
   padding: 8px 15px;
